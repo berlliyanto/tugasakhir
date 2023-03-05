@@ -3,6 +3,7 @@ const authController = require("../controller/auth.controller");
 const paramController = require("../controller/param.controller");
 const stockController = require("../controller/stock.controller");
 const statusController = require("../controller/status.controller");
+const energyController = require("../controller/energy.controller");
 
 const express = require("express");
 const router = express.Router();
@@ -44,5 +45,8 @@ router.get('/getStatusM3', statusController.statusM3);
 router.get('/getStatusM4', statusController.statusM4);
 router.put("/statusM1", statusController.updateSM1);
 router.put("/statusM2", statusController.updateSM2);
+
+//Energy
+router.post("/insertEnergy", energyController.create);
 
 module.exports = router;
