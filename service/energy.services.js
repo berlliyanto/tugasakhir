@@ -20,6 +20,18 @@ async function createEnergy(params, callback) {
         });
 };
 
+//READ DATA TERBARU 
+async function latestEnergy(params, callback) {
+    energy.sort({ _id: -1 }).limit(1).then((response) => {
+        if (!response) callback("No Data");
+        else return callback(null, response);
+    }).catch((error) => {
+        return callback(error);
+    });
+    
+}
+
 module.exports = {
+    latestEnergy,
     createEnergy
 }

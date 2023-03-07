@@ -29,3 +29,20 @@ exports.create = (req, res, next) => {
         }
     });
 };
+
+//READ DATA TERBARU
+exports.newEnergy = (req, res, next) => {
+    var model = {
+        parameterId: req.params.id,
+    }
+    energyServices.latestEnergy(model,(error, results)=>{
+        if(error){
+            return next(error);
+        }else{
+            return res.status(200).send({
+                message: "Success",
+                data: results,
+            })
+        }
+    })
+}
