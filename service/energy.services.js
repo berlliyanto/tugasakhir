@@ -22,7 +22,13 @@ async function createEnergy(params, callback) {
 
 //READ DATA TERBARU 
 async function latestEnergy(params, callback) {
-    energy.find().sort({ _id: -1 }).limit(1).then((response) => {
+    const voltage = params.voltage;
+    var condition = voltage
+        ? {
+            voltage: { $regex: new RegExp(voltage), $option: "i" },
+        }
+        : {};
+    energy.find(condition).sort({ _id: -1 }).limit(1).then((response) => {
         if (!response) callback("No Data");
         else return callback(null, response);
     }).catch((error) => {
