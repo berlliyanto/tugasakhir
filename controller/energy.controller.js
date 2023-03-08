@@ -15,7 +15,6 @@ exports.create = (req, res, next) => {
                 frequency : req.body.frequency,
                 pf : req.body.pf,
             };
-
             energyServices.createEnergy(model, (error, results) => {
                 if (error) {
                     return next(error);

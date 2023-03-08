@@ -4,6 +4,7 @@ const paramController = require("../controller/param.controller");
 const stockController = require("../controller/stock.controller");
 const statusController = require("../controller/status.controller");
 const energyController = require("../controller/energy.controller");
+const oeeController = require("../controller/oee.controller");
 
 const express = require("express");
 const router = express.Router();
@@ -50,4 +51,7 @@ router.put("/statusM2", statusController.updateSM2);
 router.post("/insertEnergy", energyController.create);
 router.get("/latestEnergy", energyController.newEnergy);
 
+//OEE
+router.post("/insertOEE", oeeController.createOEE)
+router.get("/latestOEEM1", oeeController.newOEEM1);
 module.exports = router;
