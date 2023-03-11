@@ -30,7 +30,7 @@ async function getstatusM1(params,callback) {
     
 }
 
-//READ DATA Mesin 1
+//READ DATA Mesin 2
 async function getstatusM2(params,callback) {
     status.find({ machine_id: 2 }).limit(1).then((response) => {
         if (!response) callback("No Data");
@@ -52,7 +52,7 @@ async function getstatusM3(params,callback) {
     
 }
 
-//READ DATA Mesin 1
+//READ DATA Mesin 4
 async function getstatusM4(params,callback) {
     status.find({ machine_id: 4 }).limit(1).then((response) => {
         if (!response) callback("No Data");

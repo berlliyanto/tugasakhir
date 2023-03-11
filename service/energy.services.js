@@ -22,7 +22,7 @@ async function createEnergy(params, callback) {
 
 //READ DATA TERBARU 
 async function latestEnergy(params, callback) {
-    energy.find().sort({ _id: -1 }).limit(5).then((response) => {
+    energy.find().sort({ _id: -1 }).limit(1).then((response) => {
         if (!response) callback("No Data");
         else return callback(null, response);
     }).catch((error) => {
