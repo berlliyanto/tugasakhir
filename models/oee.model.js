@@ -46,7 +46,7 @@ const quality = mongoose.model(
 );
 
 const oee = mongoose.model(
-    "quality",
+    "oee",
     mongoose.Schema({
         machine_id: Number,
         nilaioee: Number,
