@@ -19,10 +19,21 @@ async function createStatus(params, callback) {
         });
 };
 
-//READ DATA Mesin 1
+//READ STATUS Mesin 
+async function getstatusM(params,callback) {
+    status.find().then((response) => {
+        if (!response) callback("No STATUS");
+        else return callback(null, response);
+    }).catch((error) => {
+        return callback(error);
+    });
+    
+}
+
+//READ STATUS Mesin 1
 async function getstatusM1(params,callback) {
     status.find({ machine_id: 1 }).limit(1).then((response) => {
-        if (!response) callback("No Data");
+        if (!response) callback("No STATUS");
         else return callback(null, response);
     }).catch((error) => {
         return callback(error);
@@ -30,10 +41,10 @@ async function getstatusM1(params,callback) {
     
 }
 
-//READ DATA Mesin 2
+//READ STATUS Mesin 2
 async function getstatusM2(params,callback) {
     status.find({ machine_id: 2 }).limit(1).then((response) => {
-        if (!response) callback("No Data");
+        if (!response) callback("No STATUS");
         else return callback(null, response);
     }).catch((error) => {
         return callback(error);
@@ -41,10 +52,10 @@ async function getstatusM2(params,callback) {
     
 }
 
-//READ DATA Mesin 3
+//READ STATUS Mesin 3
 async function getstatusM3(params,callback) {
     status.find({ machine_id: 3 }).limit(1).then((response) => {
-        if (!response) callback("No Data");
+        if (!response) callback("No STATUS");
         else return callback(null, response);
     }).catch((error) => {
         return callback(error);
@@ -52,10 +63,10 @@ async function getstatusM3(params,callback) {
     
 }
 
-//READ DATA Mesin 4
+//READ STATUS Mesin 4
 async function getstatusM4(params,callback) {
     status.find({ machine_id: 4 }).limit(1).then((response) => {
-        if (!response) callback("No Data");
+        if (!response) callback("No STATUS");
         else return callback(null, response);
     }).catch((error) => {
         return callback(error);
@@ -89,6 +100,7 @@ async function setStatusM2(params,callback){
 
 module.exports = {
     createStatus,
+    getstatusM,
     getstatusM1,
     getstatusM2,
     getstatusM3,

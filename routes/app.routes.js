@@ -40,6 +40,7 @@ router.put("/addStockM1", stockController.addM1);
 
 //Status
 router.post("/insertStat", statusController.create);
+router.get("/getStatus", statusController.status);
 router.get('/getStatusM1', statusController.statusM1);
 router.get('/getStatusM2', statusController.statusM2);
 router.get('/getStatusM3', statusController.statusM3);

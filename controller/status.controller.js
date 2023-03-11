@@ -25,6 +25,22 @@ exports.create = (req, res, next) => {
         }
     });
 };
+//READ DATA MESIN 
+exports.status = (req, res, next) => {
+    var model = {
+        status: req.body.status
+    }
+    statusService.getstatusM(model,(error, results)=>{
+        if(error){
+            return next(error);
+        }else{
+            return res.status(200).send({
+                message: "Success",
+                data: results,
+            })
+        }
+    });
+};
 
 //READ DATA MESIN 1
 exports.statusM1 = (req, res, next) => {
