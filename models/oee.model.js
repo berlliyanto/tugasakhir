@@ -1,20 +1,56 @@
 const mongoose = require("mongoose");
 
-const oee = mongoose.model(
-    "oee",
+const availability = mongoose.model(
+    "availability",
     mongoose.Schema({
         machine_id: Number,
         operationtime: Number,
         downtime: Number,
         runningtime: Number,
+        state: Boolean,
+    },
+    {
+        timestamps: true,
+    }
+    )
+);
+
+const performance = mongoose.model(
+    "performance",
+    mongoose.Schema({
+        machine_id: Number,
+        operationtime: Number,
+        cycletime: Number,
+        flawless: Number,
+        state: Boolean,
+    },
+    {
+        timestamps: true,
+    }
+    )
+);
+
+const quality = mongoose.model(
+    "quality",
+    mongoose.Schema({
+        machine_id: Number,
         flawless: Number,
         defect: Number,
         processed: Number,
-        availability: Number,
-        performance: Number,
-        quality: Number,
+        state: Boolean,
+    },
+    {
+        timestamps: true,
+    }
+    )
+);
+
+const oee = mongoose.model(
+    "quality",
+    mongoose.Schema({
+        machine_id: Number,
         nilaioee: Number,
-        hasiloee: Number,
+        hasiloee: String,
         state: Boolean,
     },
     {
@@ -24,5 +60,8 @@ const oee = mongoose.model(
 );
 
 module.exports = {
+    availability,
+    performance,
+    quality,
     oee
 }
