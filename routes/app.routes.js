@@ -51,6 +51,6 @@ router.put("/statusM2", statusController.updateSM2);
 //Energy
 router.post("/insertEnergy", energyController.create);
 router.get("/latestEnergy", energyController.newEnergy);
-router.get("graphEnergy", energyController.graphEnergy);
+router.get("/grafikEnergy", energyController.graphEnergy);
 
 module.exports = router;
