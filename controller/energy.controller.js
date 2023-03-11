@@ -45,3 +45,20 @@ exports.newEnergy = (req, res, next) => {
         }
     })
 }
+
+//READ 5 DATA TERBARU
+exports.graphEnergy = (req, res, next) => {
+    var model = {
+        parameterId: req.params.id,
+    }
+    energyServices.graphicEnergy(model,(error, results)=>{
+        if(error){
+            return next(error);
+        }else{
+            return res.status(200).send({
+                message: "Success",
+                data: results,
+            })
+        }
+    })
+}
