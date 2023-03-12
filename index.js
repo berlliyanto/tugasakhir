@@ -6,6 +6,7 @@ const {MONGO_DB_CONFIG} = require("./config/app.config");
 
 const auth = require ("./middleware/auth");
 const errors = require ("./middleware/errors");
+const {unless} = require("express-unless");
 
 mongoose.Promise = global.Promise;
 var Port = process.env.port || 5000;
@@ -22,15 +23,15 @@ mongoose.connect(MONGO_DB_CONFIG.DB, {
     }
 );
  
-// auth.authenticateToken.unless = unless;
-// app.use(
-//     auth.authenticateToken.unless({
-//         path:[
-//             {url: "/api/login", methods: ["POST"]},
-//             {url: "/api/register", methods: ["POST"]}
-//         ],
-//     })
-// );
+auth.authenticateToken.unless = unless;
+app.use(
+    auth.authenticateToken.unless({
+        path:[
+            {url: "/api/login", methods: ["POST"]},
+            {url: "/api/register", methods: ["POST"]}
+        ],
+    })
+);
 
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
